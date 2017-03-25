@@ -42,7 +42,7 @@ public class TravelRequest extends CommonHelpers {
 
     @Before
     public void setUp() {
-        driver.manage().window().maximize();
+//        driver.manage().window().maximize();
     }
 
     @After
@@ -244,5 +244,14 @@ public class TravelRequest extends CommonHelpers {
         
         Assert.assertEquals("newTravelRequest.originLastTripLocatorString", "newTravelRequest.originInputLocatorString", "oj");
 
+    }
+
+    @And("^I want to delete \"([^\"]*)\" my request and validate delete process$")
+    public void iWantToDeleteMyRequestAndValidateDeleteProcess(String arg0) throws Throwable {
+        if(arg0.equals("is")){
+            tableTravelRequest.deleteTravel();
+            common.waitOnLoaderForSeconds(15);
+            assertEquals("Travel hasn't been removed", 0, tableTravelRequest.getCellsTextByHeader("Employee").size());
+        }
     }
 }

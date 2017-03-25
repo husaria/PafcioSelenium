@@ -1,0 +1,1 @@
+java -jar -Dwebdriver.chrome.driver="C:/Users/plukaszew/Desktop/QAAutomation/src/main/resources/drivers/chromedriver.exe" selenium-server-standalone-3.3.1.jar -role node -hub http://10.1.90.109:9999/grid/register
